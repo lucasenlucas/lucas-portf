@@ -115,7 +115,7 @@
 </head>
 <body>
     <div class="desktop">
-        <div class="file" onclick="window.location.href='workspace/index.html'">
+        <div class="file" onclick="goToWorkspace()">
             <img src="https://webtinq.nl/fotos-howtohack/afbeeldingen/file.png" alt="Lucas OS Workspace">
             <span>Lucas OS Workspace</span>
         </div>
@@ -149,6 +149,11 @@
     </div>
 
     <script>
+        // Functie voor het gaan naar de workspace map
+        function goToWorkspace() {
+            window.location.href = 'workspace/index.html';  // Verwijst naar index.html in de workspace map
+        }
+
         function openPasswordManager() {
             const manager = document.getElementById("passwordManager");
             manager.style.display = "flex";
