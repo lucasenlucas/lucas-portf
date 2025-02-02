@@ -115,13 +115,9 @@
 </head>
 <body>
     <div class="desktop">
-        <div class="file" onclick="openProjects()">
-            <img src="https://webtinq.nl/fotos-howtohack/afbeeldingen/file.png" alt="Projects">
-            <span>Projects</span>
-        </div>
-        <div class="file" onclick="openContact()">
-            <img src="https://webtinq.nl/fotos-howtohack/afbeeldingen/file.png" alt="Contact">
-            <span>Contact</span>
+        <div class="file" onclick="window.location.href='workspace/index.html'">
+            <img src="https://webtinq.nl/fotos-howtohack/afbeeldingen/file.png" alt="Lucas OS Workspace">
+            <span>Lucas OS Workspace</span>
         </div>
         <div class="file" onclick="openPasswordManager()">
             <img src="https://webtinq.nl/fotos-howtohack/afbeeldingen/MagicEraser_250128_163604.PNG" onerror="this.src='https://via.placeholder.com/70x70?text=Password+Manager'" alt="Password Manager">
@@ -153,14 +149,6 @@
     </div>
 
     <script>
-        function openProjects() {
-            alert("Projects folder opened!");
-        }
-
-        function openContact() {
-            alert("Contact folder opened!");
-        }
-
         function openPasswordManager() {
             const manager = document.getElementById("passwordManager");
             manager.style.display = "flex";
