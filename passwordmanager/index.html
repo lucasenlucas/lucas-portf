@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas OS Workspace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(to right, #0078d7, #0056b3);
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .title {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .workspace {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #e4e7eb;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            padding: 12px 8px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #d6d8db;
+        }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            background: white;
+            overflow-y: auto;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+        }
+
+        .content h2 {
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0078d7;
+            padding-bottom: 5px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .files {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .folder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .folder:hover {
+            transform: scale(1.05);
+            background-color: #e0f0ff;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .folder-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .folder-name {
+            font-size: 1.1em;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            cursor: pointer;
+            color: #0078d7;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #0056b3;
+        }
+    </style>
+    <script>
+        function showContent(section) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(section).classList.remove('hidden');
+        }
+
+        function openHowToHack() {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById('how-to-hack-content').classList.remove('hidden');
+            document.getElementById('back-button').classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById('projecten').classList.remove('hidden');
+            document.getElementById('back-button').classList.add('hidden');
+        }
+
+        window.onload = function() {
+            showContent('projecten');
+        };
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Lucas OS Workspace</div>
+    </div>
+
+    <div class="workspace">
+        <div class="sidebar">
+            <h3>Navigatie</h3>
+            <ul>
+                <li onclick="showContent('projecten')">📁 Projecten</li>
+                <li onclick="showContent('over-mij')">👤 Over Mij</li>
+                <li onclick="showContent('evenementen')">📅 Evenementen</li>
+                <li onclick="showContent('contact')">📩 Contact</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <a id="back-button" class="back-button hidden" onclick="goBack()">← Terug</a>
+
+            <div id="projecten" class="content-section">
+                <h2>Projecten</h2>
+                <div class="files">
+                    <div class="folder" onclick="openHowToHack()">
+                        <div class="folder-icon">📁</div>
+                        <div class="folder-name">How to Hack</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="how-to-hack-content" class="content-section hidden">
+                <h2>How to Hack</h2>
+                <p> How to Hack begon eigenlijk heel toevallig. Voor ICT op school moest ik een website maken als opdracht, waar ik een cijfer voor zou krijgen. Terwijl veel klasgenoten voor standaard projecten kozen, dacht ik: “Laat ik eens iets anders doen.” Zo ontstond het idee om een website te maken waar mensen niet alleen programmeertalen konden leren, maar ook spelletjes konden spelen die op het schoolnetwerk verboden waren.
+
+
+Wat begon als een eenvoudig schoolproject, groeide uit tot een platform met een grotere missie: anderen helpen om te leren coderen en begrijpen hoe je veilig met technologie kunt omgaan. De combinatie van educatie en fun zorgde ervoor dat de website populair werd onder mijn vrienden, en het motiveerde me om verder te denken.
+
+
+Van daaruit groeide How to Hack verder uit. Het doel werd om mensen op een laagdrempelige manier kennis te laten maken met verschillende programmeertalen en tools die ze in de toekomst zouden kunnen gebruiken. Daarnaast bleef het idee van ethische hacking een belangrijk onderdeel, omdat het niet alleen draait om wat je kunt doen, maar vooral om hoe je het doet – op een manier die de digitale veiligheid versterkt.
+
+
+En zo werd wat ooit begon als een schoolopdracht, het begin van een groter avontuur dat ik samen met vrienden bleef ontwikkelen. How to Hack is sindsdien blijven groeien en biedt nu talloze bronnen voor iedereen die meer wil leren over coding en cybersecurity. 
+
+
+How to hack bestaat waarschijnlijk nu nog steeds als je dit leest of zijn we nog verder aan het ontwikkelen neem dus Voral een kijkje op howtohack.nl en bedankt aan Kane en Koen die mij hebben geholpen om dit op te zetten en bedankt aan schoolblocks dat ik door hun op dit idee kwam: schoolblocks.nl en natuurlijk aan Henk van Ee van stichtingcyberbrein.nl die ons heeft geholpen om dit op te zetten, en ook aan quin de lira die alle video's  en foto's voor ons heeft gefilmd en ge edit. </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
