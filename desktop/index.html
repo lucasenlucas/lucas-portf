@@ -35,8 +35,8 @@
             margin: 20px;
             cursor: pointer;
             transition: transform 0.2s;
-            border-radius: 15px; /* Afgeronde hoeken */
-            overflow: hidden; /* Verbergt de rand van de afbeelding */
+            border-radius: 15px;
+            overflow: hidden;
         }
 
         .file:hover {
@@ -46,7 +46,7 @@
         .file img {
             width: 70px;
             height: 70px;
-            border-radius: 10px; /* Afgeronde randen voor de afbeelding */
+            border-radius: 10px;
         }
 
         .file span {
@@ -115,7 +115,7 @@
 </head>
 <body>
     <div class="desktop">
-        <div class="file" onclick="window.location.href='workspace'">
+        <div class="file" onclick="window.location.href='/port/desktop/workspace.html'">
             <img src="https://webtinq.nl/fotos-howtohack/afbeeldingen/file.png" alt="Lucas OS Workspace">
             <span>Lucas OS Workspace</span>
         </div>
@@ -123,7 +123,6 @@
             <img src="https://webtinq.nl/fotos-howtohack/afbeeldingen/MagicEraser_250128_163604.PNG" onerror="this.src='https://via.placeholder.com/70x70?text=Password+Manager'" alt="Password Manager">
             <span>Password Manager</span>
         </div>
-        <!-- Nieuw bestand met Google Chrome-logo en doorverwijzing naar howtohack.nl -->
         <div class="file" onclick="window.location.href='https://howtohack.nl'">
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png" alt="How to Hack">
             <span>How to Hack</span>
@@ -141,7 +140,7 @@
 
     <div class="taskbar">
         <div class="taskbar-left">
-            <!-- Windows logo is removed here -->
+            <!-- Windows logo is intentionally removed -->
         </div>
         <div class="taskbar-right">
             <span class="clock" id="clock">00:00</span>
