@@ -35,6 +35,8 @@
             margin: 20px;
             cursor: pointer;
             transition: transform 0.2s;
+            border-radius: 15px; /* Afgeronde hoeken */
+            overflow: hidden; /* Verbergt de rand van de afbeelding */
         }
 
         .file:hover {
@@ -44,6 +46,7 @@
         .file img {
             width: 70px;
             height: 70px;
+            border-radius: 10px; /* Afgeronde randen voor de afbeelding */
         }
 
         .file span {
@@ -124,6 +127,11 @@
             <img src="https://webtinq.nl/fotos-howtohack/afbeeldingen/MagicEraser_250128_163604.PNG" onerror="this.src='https://via.placeholder.com/70x70?text=Password+Manager'" alt="Password Manager">
             <span>Password Manager</span>
         </div>
+        <!-- Nieuw bestand met Google Chrome-logo en doorverwijzing naar howtohack.nl -->
+        <div class="file" onclick="window.location.href='https://howtohack.nl'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png" alt="How to Hack">
+            <span>How to Hack</span>
+        </div>
     </div>
 
     <div class="password-manager" id="passwordManager">
@@ -137,7 +145,7 @@
 
     <div class="taskbar">
         <div class="taskbar-left">
-            <img src="https://img.icons8.com/color/96/windows-11.png" class="taskbar-icon" alt="Start">
+            <!-- Windows logo is removed here -->
         </div>
         <div class="taskbar-right">
             <span class="clock" id="clock">00:00</span>
